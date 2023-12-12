@@ -5,10 +5,12 @@ pipeline {
         NEXT_VERSION = nextVersion()
     }
 
-    stages {
+    stages { 
         stage('Hello') {
             steps {
                 sh '''#! /usr/bin/env bash
+                    ls -al
+                    
                     git config --local user.name github-release[bot]
                     git config --local user.email github-release-bot@mjheitland.com
 
