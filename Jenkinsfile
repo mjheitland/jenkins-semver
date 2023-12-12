@@ -13,6 +13,7 @@ pipeline {
                     git config --local user.email github-release-bot@mjheitland.com
 
                     version=${NEXT_VERSION}
+                    echo "Next git version (used as tag): ${NEXT_VERSION}"
                     major_version=$(cut -d'.' -f1 <<<"${version}")
                     minor_version=$(cut -d'.' -f2 <<<"${version}")
 
