@@ -24,6 +24,7 @@ pipeline {
                 sh '''#! /usr/bin/env bash
                     set -xeo pipefail
                     ls -al
+                    git tag
                     git config --local user.name github-release[bot]
                     git config --local user.email github-release-bot@mjheitland.com
                     echo "Next git version (used as tag): ${NEXT_VERSION}"
