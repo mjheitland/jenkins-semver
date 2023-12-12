@@ -12,6 +12,11 @@ pipeline {
                     credentialsId: 'GITHUB_USER',
                     url: 'git@github.com:mjheitland/jenkins-semver.git'
 
+                script (
+                    def NEXT_VERSION = next_version()
+                    echo "next version: ${NEXT_VERSION}"
+                )
+                
                 sh '''#! /usr/bin/env bash
                     ls -al
 
@@ -19,7 +24,6 @@ pipeline {
                     git config --local user.email github-release-bot@mjheitland.com
 
                     # version=${NEXT_VERSION}
-                    version = nextVersion()
                     echo "Next git version (used as tag): ${NEXT_VERSION}"
                     # major_version=$(cut -d'.' -f1 <<<"${version}")
                     # minor_version=$(cut -d'.' -f2 <<<"${version}")
