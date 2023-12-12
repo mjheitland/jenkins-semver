@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                sh '''
+                sh '''#! /usr/bin/env bash
                     git config --local user.name github-release[bot]
                     git config --local user.email github-release-bot@mjheitland.com
 
