@@ -4,6 +4,9 @@ pipeline {
     stages { 
         stage('Checkout') {
             steps {
+                // Delete the entire workspace
+                deleteDir()
+
                 git branch: 'main',
                     credentialsId: 'GITHUB_USER',
                     url: 'git@github.com:mjheitland/jenkins-semver.git'
@@ -16,6 +19,8 @@ pipeline {
             }
 
             steps {
+                echo "next version = ${NEXT_VERSION}"
+                
                 sh '''#! /usr/bin/env bash
                     set -xeo pipefail
                     ls -al
