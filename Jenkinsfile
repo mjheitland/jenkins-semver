@@ -29,8 +29,8 @@ pipeline {
                     set -xeo pipefail
                     ls -al
                     git tag
-                    git config --local user.name github-release[bot]
-                    git config --local user.email github-release-bot@mjheitland.com
+                    # git config --local user.name github-release[bot]
+                    # git config --local user.email github-release-bot@mjheitland.com
                     echo "Next git version (used as tag): ${NEXT_VERSION}"
                     version=${NEXT_VERSION}
                     major_version=$(cut -d'.' -f1 <<<"${version}")
