@@ -5,7 +5,6 @@ pipeline {
     stages { 
 
         stage('Checkout') {
-            
             steps {
                 // Delete the entire workspace
                 deleteDir()
@@ -18,7 +17,6 @@ pipeline {
         }
 
         stage('Tag') {
-
             environment {
                 NEXT_VERSION = nextVersion()
             }
