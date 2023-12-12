@@ -2,6 +2,14 @@ pipeline {
     agent any
 
     stages { 
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    credentialsId: 'GITHUB_USER',
+                    url: 'git@github.com:mjheitland/jenkins-semver.git'
+            }
+        }
+
         stage('Tag') {
             environment {
                 NEXT_VERSION = nextVersion()
