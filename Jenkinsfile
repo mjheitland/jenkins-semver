@@ -17,6 +17,7 @@ pipeline {
 
             steps {
                 sh '''#! /usr/bin/env bash
+                    set -xeo pipefail
                     ls -al
                     git config --local user.name github-release[bot]
                     git config --local user.email github-release-bot@mjheitland.com
