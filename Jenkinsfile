@@ -12,10 +12,8 @@ pipeline {
                     credentialsId: 'GITHUB_USER',
                     url: 'git@github.com:mjheitland/jenkins-semver.git'
 
-                script (
-                    def NEXT_VERSION = next_version()
-                    echo "next version: ${NEXT_VERSION}"
-                )
+                def NEXT_VERSION = next_version()
+                echo "next version: ${NEXT_VERSION}"
                 
                 sh '''#! /usr/bin/env bash
                     ls -al
