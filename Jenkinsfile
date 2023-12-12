@@ -8,6 +8,10 @@ pipeline {
     stages { 
         stage('Hello') {
             steps {
+                git branch: 'main',
+                    credentialsId: 'GITHUB_USER',
+                    url: 'git@github.com:mjheitland/jenkins-semver.git'
+
                 sh '''#! /usr/bin/env bash
                     ls -al
 
