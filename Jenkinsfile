@@ -2,16 +2,16 @@ pipeline {
     agent any
 
     stages { 
-        // stage('Checkout') {
-        //     steps {
-        //         // Delete the entire workspace
-        //         deleteDir()
+        stage('Checkout') {
+            steps {
+                // Delete the entire workspace
+                deleteDir()
 
-        //         git branch: 'main',
-        //             credentialsId: 'GITHUB_USER',
-        //             url: 'git@github.com:mjheitland/jenkins-semver.git'
-        //     }
-        // }
+                git branch: 'main',
+                    credentialsId: 'GITHUB_USER',
+                    url: 'git@github.com:mjheitland/jenkins-semver.git'
+            }
+        }
 
         stage('Tag') {
             environment {
