@@ -15,11 +15,10 @@ pipeline {
         }
 
         stage('Tag') {
+            environment {
+                NEXT_VERSION = next_version()
+            }
             steps {
-                environment {
-                    NEXT_VERSION = next_version()
-                }
-
                 sh '''#! /usr/bin/env bash
                     ls -al
 
