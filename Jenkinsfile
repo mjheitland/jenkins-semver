@@ -12,17 +12,18 @@ pipeline {
                     credentialsId: 'GITHUB_USER',
                     url: 'git@github.com:mjheitland/jenkins-semver.git'
 
-                NEXT_VERSION = next_version()
-                echo "next version: ${NEXT_VERSION}"
-                
+                environment {
+                    NEXT_VERSION = next_version()
+                }
+
                 sh '''#! /usr/bin/env bash
                     ls -al
 
                     git config --local user.name github-release[bot]
                     git config --local user.email github-release-bot@mjheitland.com
 
-                    # version=${NEXT_VERSION}
                     echo "Next git version (used as tag): ${NEXT_VERSION}"
+                    version=${NEXT_VERSION}
                     # major_version=$(cut -d'.' -f1 <<<"${version}")
                     # minor_version=$(cut -d'.' -f2 <<<"${version}")
                     # git push origin :${major_version} || true
