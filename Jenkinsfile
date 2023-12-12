@@ -34,16 +34,21 @@ pipeline {
                     version=${NEXT_VERSION}
                     major_version=$(cut -d'.' -f1 <<<"${version}")
                     minor_version=$(cut -d'.' -f2 <<<"${version}")
+                    patch_version=$(cut -d'.' -f3 <<<"${version}")
                     git push origin :${major_version} || true
                     git push origin :${major_version}.${minor_version} || true
+                    git push origin :${major_version}.${minor_version}.${patch_version} || true
                     git tag -d ${major_version} || true
                     git tag -d ${major_version}.${minor_version} || true
+                    git tag -d ${major_version}.${minor_version}.${patch_version} || true
                     git tag -a ${major_version} -m "Release ${major_version}"
                     git tag -a ${major_version}.${minor_version} -m "Release ${major_version}.${minor_version}"
+                    git tag -a ${major_version}.${minor_version} -m "Release ${major_version}.${minor_version}.${patch_version}"
                     git tag
                     git push origin ${major_version}
                     git push origin ${major_version}.${minor_version}
-                '''
+                    git push origin ${major_version}.${minor_version}.${patch_version}
+               '''
             }
         }
     }
