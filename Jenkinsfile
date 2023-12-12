@@ -1,9 +1,9 @@
 pipeline {
     agent any
 
-    environment {
-        NEXT_VERSION = nextVersion()
-    }
+    // environment {
+    //     NEXT_VERSION = nextVersion()
+    // }
 
     stages { 
         stage('Hello') {
@@ -18,7 +18,8 @@ pipeline {
                     git config --local user.name github-release[bot]
                     git config --local user.email github-release-bot@mjheitland.com
 
-                    version=${NEXT_VERSION}
+                    # version=${NEXT_VERSION}
+                    version = nextVersion()
                     echo "Next git version (used as tag): ${NEXT_VERSION}"
                     # major_version=$(cut -d'.' -f1 <<<"${version}")
                     # minor_version=$(cut -d'.' -f2 <<<"${version}")
