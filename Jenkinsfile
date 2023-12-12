@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    parameters {
-        gitParameter branchFilter: 'origin.*/(.*)', defaultValue: 'main', name: 'main', type: 'PT_BRANCH_TAG'
-    }
-
     stages { 
         stage('Checkout') {
             steps {
