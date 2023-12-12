@@ -16,7 +16,7 @@ pipeline {
 
         stage('Tag') {
             environment {
-                NEXT_VERSION = next_version()
+                NEXT_VERSION = nextVersion()
             }
             steps {
                 sh '''#! /usr/bin/env bash
