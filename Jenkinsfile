@@ -6,12 +6,16 @@ pipeline {
     // }
 
     stages { 
-        stage('Hello') {
+        stage('Checkout') {
             steps {
                 git branch: 'main',
                     credentialsId: 'GITHUB_USER',
                     url: 'git@github.com:mjheitland/jenkins-semver.git'
+            }
+        }
 
+        stage('Tag') {
+            steps {
                 environment {
                     NEXT_VERSION = next_version()
                 }
