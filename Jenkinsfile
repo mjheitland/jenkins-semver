@@ -43,7 +43,7 @@ pipeline {
                     git tag -d ${major_version}.${minor_version}.${patch_version} || true
                     git tag -a ${major_version} -m "Release ${major_version}"
                     git tag -a ${major_version}.${minor_version} -m "Release ${major_version}.${minor_version}"
-                    git tag -a ${major_version}.${minor_version} -m "Release ${major_version}.${minor_version}.${patch_version}"
+                    git tag -a ${major_version}.${minor_version}.${patch_version} -m "Release ${major_version}.${minor_version}.${patch_version}"
                     git tag
                     git push origin ${major_version}
                     git push origin ${major_version}.${minor_version}
