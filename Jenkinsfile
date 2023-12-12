@@ -9,6 +9,7 @@ pipeline {
 
                 git branch: 'main',
                     credentialsId: 'GITHUB_USER',
+                    type: 'PT_BRANCH_TAG',
                     url: 'git@github.com:mjheitland/jenkins-semver.git'
             }
         }
