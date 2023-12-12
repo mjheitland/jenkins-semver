@@ -27,8 +27,8 @@ pipeline {
                     git tag
                     # git config --local user.name github-release[bot]
                     # git config --local user.email github-release-bot@mjheitland.com
-                    git config --local user.name mjheitland
-                    git config --local user.email mjheitland@gmail.com
+                    git config --local user.name heitlm
+                    git config --local user.email heitlm@amazon.de
                     echo "Next git version (used as tag): ${NEXT_VERSION}"
                     version=${NEXT_VERSION}
                     major_version=$(cut -d'.' -f1 <<<"${version}")
