@@ -24,7 +24,6 @@ pipeline {
                         // patchPattern: '^[Ff]ix.*'
             }
 
-
             steps {
                 sh '''#! /usr/bin/env bash
                     set -xeo pipefail
