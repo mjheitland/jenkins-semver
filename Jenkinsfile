@@ -23,7 +23,6 @@ pipeline {
                     // minorPattern: '^[Ff]eature.*',
                     // patchPattern: '^[Ff]ix.*'
             }
-
             steps {
                 sh '''#! /usr/bin/env bash
                     set -xeo pipefail
