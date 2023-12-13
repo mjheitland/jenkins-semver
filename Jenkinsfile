@@ -26,7 +26,7 @@ pipeline {
 
             steps {
                 script {
-                    def nextVersion = ${NEXT_VERSION}
+                    def nextVersion = environment.NEXT_VERSION
                     println "Next version:" + nextVersion.toString();
                     println " Major:" + nextVersion.getMajor();
                     println " Minor:" + nextVersion.getMinor();
