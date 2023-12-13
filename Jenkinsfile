@@ -18,10 +18,7 @@ pipeline {
 
         stage('Tag') {
             environment {
-                NEXT_VERSION = getNextSemanticVersion
-                    majorPattern: \'^[Bb]reaking.*\',
-                    minorPattern: \'^[Ff]eature.*\',
-                    patchPattern: \'^[Ff]ix.*\'
+                NEXT_VERSION = getNextSemanticVersion "majorPattern: '^[Bb]reaking.*', minorPattern: '^[Ff]eature.*', patchPattern: '^[Ff]ix.*'"
             }
 
             steps {
