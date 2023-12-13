@@ -25,14 +25,6 @@ pipeline {
             }
 
             steps {
-                script {
-                    def nextVersion = environment.NEXT_VERSION
-                    println "Next version:" + nextVersion.toString();
-                    println " Major:" + nextVersion.getMajor();
-                    println " Minor:" + nextVersion.getMinor();
-                    println " Patch:" + nextVersion.getPatch();
-                }
-
                 sh '''#! /usr/bin/env bash
                     set -xeo pipefail
                     ls -al
