@@ -24,14 +24,16 @@ pipeline {
             steps {
                 // echo "next version = ${NEXT_VERSION}"
 
-                def nextVersion = getNextSemanticVersion()
-                    // majorPattern: '^[Bb]reaking.*',
-                    // minorPattern: '^[Ff]eature.*',
-                    // patchPattern: '^[Ff]ix.*'
-                println "Next version:" + nextVersion.toString();
-                println " Major:" + nextVersion.getMajor();
-                println " Minor:" + nextVersion.getMinor();
-                println " Patch:" + nextVersion.getPatch();
+                script {
+                    def nextVersion = getNextSemanticVersion()
+                        // majorPattern: '^[Bb]reaking.*',
+                        // minorPattern: '^[Ff]eature.*',
+                        // patchPattern: '^[Ff]ix.*'
+                    println "Next version:" + nextVersion.toString();
+                    println " Major:" + nextVersion.getMajor();
+                    println " Minor:" + nextVersion.getMinor();
+                    println " Patch:" + nextVersion.getPatch();
+                }
 
                 sh '''#! /usr/bin/env bash
                     # set -xeo pipefail
