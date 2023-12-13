@@ -17,7 +17,6 @@ pipeline {
         }
 
         stage('Tag') {
-            
             environment {
                 NEXT_VERSION = getNextSemanticVersion()
                     // majorPattern: '^[Bb]reaking.*',
