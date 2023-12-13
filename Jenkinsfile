@@ -17,13 +17,13 @@ pipeline {
         }
 
         stage('Tag') {
+
             environment {
                 NEXT_VERSION = getNextSemanticVersion()
                     // majorPattern: '^[Bb]reaking.*',
                     // minorPattern: '^[Ff]eature.*',
                     // patchPattern: '^[Ff]ix.*'
             }
-            
             steps {
                 sh '''#! /usr/bin/env bash
                     set -xeo pipefail
