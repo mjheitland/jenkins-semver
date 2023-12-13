@@ -24,6 +24,7 @@ pipeline {
             steps {
                 echo "next version = ${NEXT_VERSION}"
 
+
                 sh '''#! /usr/bin/env bash
                     set -xeo pipefail
                     ls -al
