@@ -19,9 +19,6 @@ pipeline {
         stage('Tag') {
             environment {
                 NEXT_VERSION = getNextSemanticVersion()
-                    // majorPattern: '^[Bb]reaking.*',
-                    // minorPattern: '^[Ff]eature.*',
-                    // patchPattern: '^[Ff]ix.*'
             }
             steps {
                 sh '''#! /usr/bin/env bash
@@ -50,7 +47,8 @@ pipeline {
                     git push origin ${major_version}
                     git push origin ${major_version}.${minor_version}
                     git push origin ${major_version}.${minor_version}.${patch_version}
-               '''           }
+               '''           
+            }
         }
     }
 }
